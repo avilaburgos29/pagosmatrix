@@ -13,7 +13,7 @@ let pagosdb = {};
 
 pagosdb.all = () => {
     return new Promise((resolve, reject) =>{
-        pool.query(`SELECT * FROM pagos`, (err, results) =>{
+        pool.query(`SELECT * FROM citaslc_000037`, (err, results) =>{
             if(err){ return reject(err); }
             return resolve(results);
         });
@@ -23,7 +23,7 @@ pagosdb.all = () => {
 
 pagosdb.one = (id) => {
     return new Promise((resolve, reject) =>{
-        pool.query(`SELECT * FROM pagos WHERE id = ?`, [id], (err, results) =>{
+        pool.query(`SELECT * FROM citaslc_000037 WHERE id = ?`, [id], (err, results) =>{
             if(err){ return reject(err); }
             return resolve(results[0]);
         });
