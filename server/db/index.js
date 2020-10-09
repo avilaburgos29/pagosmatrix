@@ -31,9 +31,19 @@ pagosdb.one = (id) => {
 
 };
 
-pagosdb.create = (pago) => {
+/*pagosdb.create = (pago) => {
     return new Promise((resolve, reject) =>{
         pool.query(`INSERT INTO pagos SET ?`, [pago], (err, results) =>{
+            if(err){ return reject(err); }
+            return resolve(results);
+        });
+    });
+
+};*/
+
+pagosdb.create = (pago, tabla) => {
+    return new Promise((resolve, reject) =>{
+        pool.query(`INSERT INTO ${tabla}_000037 SET ?`, [pago], (err, results) =>{
             if(err){ return reject(err); }
             return resolve(results);
         });
